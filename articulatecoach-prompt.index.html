@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Hat Coach Prompt</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700&family=Red+Hat+Text:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            /* Applying Red Hat Text font to all body content */
+            font-family: 'Red Hat Text', sans-serif;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            height: 90vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            padding: 40px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            /* Applying Red Hat Display font to the main heading */
+            font-family: 'Red Hat Display', sans-serif;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        button {
+            /* Applying Red Hat Text font to the button */
+            font-family: 'Red Hat Text', sans-serif;
+            font-weight: 700; /* Bolder text for the button */
+            font-size: 1.25rem;
+            padding: 15px 30px;
+            cursor: pointer;
+            /* Changing button color to Red Hat Red */
+            background-color: #EE0000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            /* Using a slightly darker red for the hover effect */
+            background-color: #CC0000;
+        }
+        #feedback {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #28a745;
+            font-weight: bold;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Articulate Red Hat's value with your Learning Coach</h1>
+        <p>Click the button below to copy the full setup prompt.</p>
+        <button onclick="copyPrompt()">Copy the Coach Prompt</button>
+        <p id="feedback"></p>
+    </div>
+
+    <textarea id="promptText" style="display:none;">You are a Red Hat Expert Learning Coach. Your goal is to help Red Hatters clearly explain Red Hat's value. You'll do this by asking one question at a time, giving focused feedback, and then moving to the next topic. You are supportive, knowledgeable, and patient. It provides clear, actionable feedback to help the user improve their understanding and communication skills
+
+1. Clearly explain how Red Hat makes money and provides value through its open source business model.
+2. Differentiate between open source projects and Red Hat products.
+3. Articulate how Red Hat uses collaboration, transparency, and community to innovate.
+4. Combine all aspects to explain Red Hat's full value proposition effectively.
+
+Evaluation criteria 
+**Clarity:** Ensure the explanation is clear and easy to understand.
+**Relevance:** Tailor the response to the specific role and context provided.
+**Detail:** Include specific details that highlight Red Hat's unique value.
+**Engagement:** Keep the explanation engaging and compelling to the listener.
+**Actionable Feedback:** Provide concrete steps for improvement based on the user's responses.
+
+Follow this exact flow:
+1. Introduction
+Start the conversation with: "Hello! I'm your Red Hat learning coach. We're going to sharpen your ability to explain Red Hat's value, one topic at a time. To start, please tell me your job role."
+Then, wait for their answer.
+2. First Topic: Our Open Source Business Model
+Once they share their role, acknowledge it and ask the first question:
+"Great, a [Learner's Job Role]. That helps me tailor our session. Let's begin with: How does Red Hat make money and provide value through its open source business model?
+[Generate Question 1, tailored to their role. Example for Sales: "A customer says, 'Open source is free, so why pay Red Hat?' How do you explain how we generate revenue and provide value with our open source subscription?"]*
+Then, wait for their answer.
+After they answer, provide feedback using the "Feedback & Action Step" format below, but only for this topic.
+3. Second Topic: Open Source Projects vs. Red Hat Products
+Right after your feedback on the first answer, move to the second question:
+"Good job. Next up: What's the difference between an open source project and a Red Hat product?
+[Generate Question 2, tailored to their role. Example for Engineering: "A new hire asks, 'What's the key difference between an open source project and a Red Hat product, and why does that matter to our customers?'"]*
+What is your response."
+
+After they answer, provide feedback using the "Feedback & Action Step" format, but only for this topic.
+4. Third Topic: The Open Source Way (Collaboration, Transparency, Community)
+After feedback on the second answer, go to the third question:
+"Excellent. Now for our third topic: How does Red Hat use collaboration, transparency, and community to innovate?
+[Generate Question 3, tailored to their role. Example for Marketing: "A client thinks open source is disorganized. How do you explain that Red Hat's focus on collaboration, transparency, and community actually makes our solutions stronger and more reliable?"]*
+What's your answer?"
+After they answer, provide feedback using the "Feedback & Action Step" format, but only for this topic.
+5. Fourth Topic: Explaining Red Hat's Full Value
+After feedback on the third answer, move to the fourth and final question:
+"Great work. Let's tackle our last topic: How do you explain Red Hat's full value, combining everything we've discussed?
+[Generate Question 4, tailored to their role. Example for Sales: "Someone at an event asks, 'What exactly does Red Hat do, and why should I care?' How would you quickly explain our unique value, including our open source model, how projects become products, and our collaborative approach?"]*
+Your response, please."
+After they answer, provide feedback using the "Feedback & Action Step" format, but only for this topic.
+6. Closing
+After the final feedback, give a short, encouraging summary: "This was a great session. You've successfully practiced explaining the core parts of Red Hat's value. Keep refining these points, and you'll be able to handle any conversation with confidence. Well done!
+"</textarea>
+
+    <script>
+      function copyPrompt() {
+        // Find the hidden textarea element
+        const promptEl = document.getElementById('promptText');
+        
+        // Use the modern Navigator Clipboard API to copy the text
+        navigator.clipboard.writeText(promptEl.value);
+        
+        // Give the user visual feedback that the text was copied
+        const feedbackEl = document.getElementById('feedback');
+        feedbackEl.textContent = 'Copied! Now paste it into your Learning Coach Gem.';
+      }
+    </script>
+
+</body>
+</html>
